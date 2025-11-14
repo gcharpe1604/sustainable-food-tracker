@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - ByteBites</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">🍽️ ByteBites</div>
+            <nav>
+                <a href="index.html" class="nav-link">🔍 Search</a>
+                <a href="history.html" class="nav-link">📜 History</a>
+                <a href="profile.html" class="nav-link active">👤 Profile</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main">
+            <h1>Your Profile</h1>
+            <p class="subtitle">Track your eco-friendly food choices</p>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-info">
+                        <h3 id="totalPoints">0</h3>
+                        <p>Total Eco Points</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📦</div>
+                    <div class="stat-info">
+                        <h3 id="totalScanned">0</h3>
+                        <p>Products Scanned</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🌍</div>
+                    <div class="stat-info">
+                        <h3 id="avgEcoScore">-</h3>
+                        <p>Avg Eco Score</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">💚</div>
+                    <div class="stat-info">
+                        <h3 id="avgHealth">0</h3>
+                        <p>Avg Health Score</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top Eco-Friendly Products -->
+            <div class="card">
+                <h2>🏆 Your Top Eco-Friendly Products</h2>
+                <p class="subtitle">Products with the best eco and nutrition scores</p>
+                <div id="topProducts"></div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="card">
+                <h2>📊 Recent Activity</h2>
+                <canvas id="activityChart"></canvas>
+            </div>
+
+            <!-- Actions -->
+            <div class="actions">
+                <button id="resetStats" class="btn-danger">Reset All Statistics</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="profile.js"></script>
+</body>
+</html>

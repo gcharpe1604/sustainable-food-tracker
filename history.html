@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History - ByteBites</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">�️ ByteBiates</div>
+            <nav>
+                <a href="index.html" class="nav-link">🔍 Search</a>
+                <a href="history.html" class="nav-link active">📜 History</a>
+                <a href="profile.html" class="nav-link">👤 Profile</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main">
+            <h1>Search History</h1>
+            <p class="subtitle">View your recently searched products</p>
+
+            <div class="actions">
+                <button id="clearHistory" class="btn-danger">Clear All History</button>
+            </div>
+
+            <div id="historyList" class="history-grid"></div>
+            <div id="emptyState" class="empty-state hidden">
+                <span class="empty-icon">📜</span>
+                <h3>No search history yet</h3>
+                <p>Products you search will appear here</p>
+                <a href="index.html" class="btn-primary">Start Searching</a>
+            </div>
+        </main>
+    </div>
+
+    <script src="history.js"></script>
+</body>
+</html>
