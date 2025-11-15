@@ -329,7 +329,7 @@ async function getSuggestions(currentProduct) {
             const pNutri = p.nutrition_grades || p.nutriscore_grade || 'N/A';
             const pEco = p.ecoscore_grade || 'N/A';
             return `
-                <div class="suggestion-item" onclick="searchByBarcode('${p.code}')">
+                <div class="suggestion-item">
                     <img src="${p.image_url || 'https://via.placeholder.com/60'}" alt="${p.product_name}">
                     <div class="suggestion-info">
                         <h4>${p.product_name || 'Unknown Product'}</h4>
@@ -339,7 +339,7 @@ async function getSuggestions(currentProduct) {
                             <span class="badge" style="background: ${getColor(pEco)}">Eco: ${pEco.toUpperCase()}</span>
                         </div>
                     </div>
-                    <button class="view-btn">View</button>
+                    <button class="view-btn" onclick="searchByBarcode('${p.code}')">View</button>
                 </div>
             `;
         }).join('');
@@ -349,6 +349,13 @@ async function getSuggestions(currentProduct) {
         console.error('Error fetching suggestions:', err);
         hide(suggestions);
     }
+}
+
+// Search by barcode (for suggestions)
+function searchByBarcode(barcode) {
+    search.value = barcode;
+    searchProduct();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function show(...els) { els.forEach(el => el.classList.remove('hidden')); }
