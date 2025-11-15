@@ -295,23 +295,23 @@ async function getSuggestions(currentProduct) {
     const suggestions = document.getElementById('suggestions');
     const list = document.getElementById('suggestionsList');
     
-    // Only suggest if current product has poor scores
+    // Only when poor scores
     const nutri = currentProduct.nutrition_grades || currentProduct.nutriscore_grade || 'e';
     const eco = currentProduct.ecoscore_grade || 'e';
     
     if (nutri <= 'b' && eco <= 'b') {
         hide(suggestions);
-        return; // Product is already good
+        return;
     }
     
     try {
-        // Search for similar products in same category
+        // Search similar products
         const category = currentProduct.categories_tags?.[0]?.replace('en:', '') || 
                         currentProduct.product_name?.split(' ')[0] || 'food';
         
         const products = await searchSimilarProducts(category, 10);
         
-        // Filter better alternatives
+        //alternatives
         const alternatives = products
             .filter(p => {
                 const pNutri = p.nutrition_grades || p.nutriscore_grade || 'e';
@@ -344,7 +344,7 @@ async function getSuggestions(currentProduct) {
             `;
         }).join('');
         
-        // Add event listeners to view buttons
+        // eventlisteners for view button
         list.querySelectorAll('.view-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -360,7 +360,7 @@ async function getSuggestions(currentProduct) {
     }
 }
 
-// Search by barcode (for suggestions)
+// Search by barcode
 function searchByBarcode(barcode) {
     search.value = barcode;
     searchProduct();
