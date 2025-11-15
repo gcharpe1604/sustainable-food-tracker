@@ -361,4 +361,3 @@ function searchByBarcode(barcode) {
 function show(...els) { els.forEach(el => el.classList.remove('hidden')); }
 function hide(...els) { els.forEach(el => el.classList.add('hidden')); }
 function showError(msg) { error.textContent = msg; show(error); setTimeout(() => hide(error), 5000); }
-
