@@ -339,10 +339,19 @@ async function getSuggestions(currentProduct) {
                             <span class="badge" style="background: ${getColor(pEco)}">Eco: ${pEco.toUpperCase()}</span>
                         </div>
                     </div>
-                    <button class="view-btn" onclick="searchByBarcode('${p.code}')">View</button>
+                    <button class="view-btn" data-barcode="${p.code}">View</button>
                 </div>
             `;
         }).join('');
+        
+        // Add event listeners to view buttons
+        list.querySelectorAll('.view-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const barcode = btn.getAttribute('data-barcode');
+                searchByBarcode(barcode);
+            });
+        });
         
         show(suggestions);
     } catch (err) {
